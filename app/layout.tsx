@@ -1,3 +1,18 @@
+import "@/app/ui/global.css";
+// import { inter } from "@/app/ui/fonts";
+import { Inter, Lusitana } from "next/font/google";
+
+const inter = Inter({
+  subsets: ["latin"],
+  variable: "--font-inter",
+});
+
+const lusitana = Lusitana({
+  subsets: ["latin"],
+  weight: ["400", "700"],
+  variable: "--font-lusitana",
+});
+
 export default function RootLayout({
   children,
 }: {
@@ -5,7 +20,9 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <body>{children}</body>
+      <body className={`${inter.variable} ${lusitana.variable} antialiased`}>
+        {children}
+      </body>
     </html>
   );
 }
